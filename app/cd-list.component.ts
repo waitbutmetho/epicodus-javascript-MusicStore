@@ -12,6 +12,9 @@ import { ArtistPipe } from './artist.pipe';
   pipes: [ArtistPipe],
   directives: [DisplayCdComponent, NewCdComponent, EditCdComponent],
   template:`
+  <select (change)="onChange($event.target.value)" class="filter">
+    <option *ngFor="#currentCD of cdList" value="{{currentCD.artist}}">{{currentCD.artist}}</option>
+  </select>
   <cd-display *ngFor="#currentCD of cdList | artist:artistFilter"
     (click)="cdClicked(currentCD)"
     [class.selected]="currentCD === selectedCD"
@@ -42,5 +45,8 @@ export class CdListComponent {
     this.cdList.push(
       new CD(newCD.name, newCD.artist, newCD.genre, newCD.price, this.cdList.length)
     );
+  }
+  onChange(filterOption) {
+    this.artistFilter = filterOption;
   }
 }
