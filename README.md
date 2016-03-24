@@ -2,7 +2,7 @@
 
 #### _A simple template, 3.__.2016_
 
-### By _** Nicholas Jensen-Hay and **_
+### By _** Joshua Gustafson and Blair Peterson **_
 
 ## Description
 
